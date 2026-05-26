@@ -483,7 +483,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 376109983}
         m_TargetAssemblyTypeName: PCInteract, Assembly-CSharp
         m_MethodName: Apply
         m_Mode: 1
