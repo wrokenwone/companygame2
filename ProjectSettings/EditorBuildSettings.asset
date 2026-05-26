@@ -11,6 +11,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HomeWakeup.unity
     guid: e951d44b9c9d2374e9645bd350a25bda
+  - enabled: 1
+    path: Assets/Scenes/Office.unity
+    guid: 1ea3d7876f89fad488ba7685ba9a7cc9
+  - enabled: 1
+    path: Assets/Scenes/Ending_Bad.unity
+    guid: d5fa6ff584a922b4fb1747850eec09c9
+  - enabled: 1
+    path: Assets/Scenes/Ending_Good.unity
+    guid: ec2a0794c8592c940b4b7003152ba33d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   m_UseUCBPForAssetBundles: 0

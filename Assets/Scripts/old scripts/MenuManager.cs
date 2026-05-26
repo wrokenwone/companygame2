@@ -7,7 +7,7 @@ public class MenuManager : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManager.LoadScene("OfficeStart");
+        SceneManager.LoadScene("HomeWakeup");
     }
 
     public void LoadGame()
