@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class PCInteract : MonoBehaviour
 {
+    public FadeEffect fadeEffect;
     public GameObject ePrompt;
     public GameObject pcPanel;
     public GameObject nextDayPanel;
@@ -38,27 +39,25 @@ public class PCInteract : MonoBehaviour
         }
     }
 
-   private void Update()
+private void Update()
 {
-    if (this == null || !gameObject.activeInHierarchy) return;
-    
     if (playerNearby && Input.GetKeyDown(KeyCode.E) && !applied)
     {
         player.GetComponent<YSort>().enabled = false;
         playerSR.sortingOrder = 3;
         player.transform.position = new Vector3(4.54f, -1.45f, 0f);
         playerSR.sprite = sittingSprite;
-        pcPanel.SetActive(true);
+        fadeEffect.FadeToPC();
     }
 }
 
-    public void Apply()
-    {
-        pcPanel.SetActive(false);
-        applied = true;
-        nextDayPanel.SetActive(true);
-        Invoke("GoToOffice", 2f);
-    }
+public void Apply()
+{
+    pcPanel.SetActive(false);
+    applied = true;
+    nextDayPanel.SetActive(true);
+    Invoke("GoToOffice", 2f);
+}
 
     private void GoToOffice()
     {
