@@ -1984,8 +1984,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "SON \xC7ALI\u015EAN"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b01f70a1d4891454981f386716e3d424, type: 2}
+  m_sharedMaterial: {fileID: 1300918305812380709, guid: b01f70a1d4891454981f386716e3d424, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
