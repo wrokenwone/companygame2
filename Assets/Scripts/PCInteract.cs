@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class PCInteract : MonoBehaviour
 {
+    public DialogueManager dialogueManager;
     public FadeEffect fadeEffect;
     public GameObject ePrompt;
     public GameObject pcPanel;
@@ -13,6 +14,13 @@ public class PCInteract : MonoBehaviour
     private SpriteRenderer playerSR;
     private bool playerNearby = false;
     private bool applied = false;
+    private bool dialogueDone = false;
+
+    private string[] pcLines = {
+        "İş arama seansı 47.",
+        "Veya 48.",
+        "Saymıyorum artık, sayıyorum aslında."
+    };
 
     private void Start()
     {
@@ -39,33 +47,40 @@ public class PCInteract : MonoBehaviour
         }
     }
 
-private void Update()
-{
-    if (playerNearby && Input.GetKeyDown(KeyCode.E) && !applied)
+    private void Update()
     {
+        if (playerNearby && Input.GetKeyDown(KeyCode.E) && !applied && !dialogueDone)
+        {
+            player.GetComponent<PlayerController>().enabled = false;
+            dialogueManager.StartDialogue(pcLines, OnPCDialogueDone);
+        }
+    }
+
+    private void OnPCDialogueDone()
+    {
+        dialogueDone = true;
         player.GetComponent<YSort>().enabled = false;
         playerSR.sortingOrder = 3;
         player.transform.position = new Vector3(4.54f, -1.45f, 0f);
         playerSR.sprite = sittingSprite;
         fadeEffect.FadeToPC();
     }
-}
 
-public void Apply()
-{
-    pcPanel.SetActive(false);
-    applied = true;
-    nextDayPanel.SetActive(true);
-    Invoke("GoToOffice", 2f);
-}
+    public void Apply()
+    {
+        pcPanel.SetActive(false);
+        applied = true;
+        nextDayPanel.SetActive(true);
+        Invoke("GoToOffice", 2f);
+    }
 
     private void GoToOffice()
     {
         SceneManager.LoadScene("Office");
-
     }
+
     private void OnDestroy()
-{
-    CancelInvoke();
-}
+    {
+        CancelInvoke();
+    }
 }
