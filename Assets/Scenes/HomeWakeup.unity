@@ -4565,8 +4565,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d86c99e1292497498395b06d5eff801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MailClick
-  applicationPanel: {fileID: 0}
-  dialogueManager: {fileID: 0}
+  applicationPanel: {fileID: 2041919549}
+  dialogueManager: {fileID: 1000330062}
 --- !u!1 &1791939912
 GameObject:
   m_ObjectHideFlags: 0
