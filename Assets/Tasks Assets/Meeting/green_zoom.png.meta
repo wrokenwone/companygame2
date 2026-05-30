@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3027d304e785db648b9e7e7aef09795e
+guid: 4000fb8c1a6482044b51290ffd84810a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4810580447802828262
-    second: photo3_0
+      213: 7178518614182721187
+    second: green_zoom_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: photo3_0
+      name: green_zoom_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 58
+        x: 38
+        y: 98
+        width: 106
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6e52ab20e6d92c240800000000000000
-      internalID: 4810580447802828262
+      spriteID: 3a6f3eb65a83f9360800000000000000
+      internalID: 7178518614182721187
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      photo3_0: 4810580447802828262
+      green_zoom_0: 7178518614182721187
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
