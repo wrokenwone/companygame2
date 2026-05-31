@@ -1608,14 +1608,94 @@ MonoBehaviour:
   npcName: Ceyda
   npcPortrait: {fileID: 7292526817701243084, guid: 6123f30fb5a68ba4085c6baf1f082b5b, type: 3}
   ePrompt: {fileID: 1749582601}
-  tasks: []
-  trustIntroDialogue: []
+  tasks:
+  - taskName: Meeting
+    introDialogue:
+    - isPlayer: 0
+      dialogueText: ...
+    - isPlayer: 1
+      dialogueText: Merhaba?
+    - isPlayer: 0
+      dialogueText: "Toplant\u0131 var."
+    - isPlayer: 1
+      dialogueText: Ne- ne zaman?
+    - isPlayer: 0
+      dialogueText: "\u015Eimdi."
+    - isPlayer: 0
+      dialogueText: "Haz\u0131r ol."
+    - isPlayer: 0
+      dialogueText: "Toplant\u0131da aktif g\xF6r\xFCnmen laz\u0131m. S\xF6yleyince
+        ba\u015F\u0131n\u0131 salla."
+    rejectDialogue:
+    - isPlayer: 0
+      dialogueText: ...
+    - isPlayer: 0
+      dialogueText: "\xC7\u0131k."
+    successDialogue:
+    - isPlayer: 0
+      dialogueText: "\u0130yi i\u015F."
+    - isPlayer: 1
+      dialogueText: "Te\u015Fekk\xFCrler. Toplant\u0131 ne hakk\u0131ndayd\u0131?"
+    - isPlayer: 0
+      dialogueText: ...
+    - isPlayer: 0
+      dialogueText: Bilmiyorum.
+    - isPlayer: 1
+      dialogueText: Sen de mi bilmiyorsun?
+    - isPlayer: 0
+      dialogueText: Kimse bilmiyor.
+    - isPlayer: 0
+      dialogueText: "Ama kafa sallad\u0131n."
+    - isPlayer: 0
+      dialogueText: Bu yeterliydi.
+    failDialogue:
+    - isPlayer: 0
+      dialogueText: hmm.
+    - isPlayer: 1
+      dialogueText: "\xD6z\xFCr dilerim, ka\xE7\u0131rd\u0131m"
+    - isPlayer: 0
+      dialogueText: 3 kez.
+    - isPlayer: 1
+      dialogueText: "2 kez asl\u0131nda."
+    - isPlayer: 0
+      dialogueText: "Toplant\u0131y\u0131 da b\xF6yle dikkatli mi dinledin?"
+    - isPlayer: 1
+      dialogueText: "Olmas\u0131 gereken bu de\u011Fil miydi?"
+    - isPlayer: 0
+      dialogueText: ....
+    acceptButtonText: "Anlad\u0131m."
+    rejectButtonText: "Neden ger\xE7ekten dinlemiyoruz ki?"
+  trustIntroDialogue:
+  - isPlayer: 0
+    dialogueText: "D\u0131\u015Far\u0131s\u0131 nas\u0131l?"
   trustOption1Text: So?uk Davran
   option1GainsTrust: 0
-  trustOption1Dialogue: []
+  trustOption1Dialogue:
+  - isPlayer: 1
+    dialogueText: "\u0130yi, normal."
+  - isPlayer: 0
+    dialogueText: ...Tamam
   trustOption2Text: Yak?n Davran
   option2GainsTrust: 1
-  trustOption2Dialogue: []
+  trustOption2Dialogue:
+  - isPlayer: 1
+    dialogueText: Ne demek istiyorsun?
+  - isPlayer: 0
+    dialogueText: "D\u0131\u015Far\u0131 \xE7\u0131k\u0131yor musun"
+  - isPlayer: 0
+    dialogueText: "Ben \xE7\u0131km\u0131yorum"
+  - isPlayer: 1
+    dialogueText: Neden?
+  - isPlayer: 0
+    dialogueText: "Buraya gelmek o kadar zaman ald\u0131 ki..."
+  - isPlayer: 0
+    dialogueText: "Geri nas\u0131l d\xF6n\xFClece\u011Fini unuttum."
+  - isPlayer: 1
+    dialogueText: ...
+  - isPlayer: 0
+    dialogueText: ....
+  - isPlayer: 0
+    dialogueText: Sen unutma
 --- !u!1 &198394249
 GameObject:
   m_ObjectHideFlags: 0
@@ -12077,13 +12157,32 @@ MonoBehaviour:
       dialogueText: ....
     acceptButtonText: "Tamam, bakay\u0131m."
     rejectButtonText: "Bunlar\u0131n hepsi ayn\u0131 de\u011Fil mi?"
-  - taskName: 
-    introDialogue: []
-    rejectDialogue: []
+  - taskName: Printer
+    introDialogue:
+    - isPlayer: 0
+      dialogueText: "Yaz\u0131c\u0131 yine bozuldu."
+    - isPlayer: 0
+      dialogueText: " Ona bir \u015Feyler s\xF6ylersen \xE7al\u0131\u015F\u0131yor
+        bazen."
+    rejectDialogue:
+    - isPlayer: 0
+      dialogueText: Evet.
+    - isPlayer: 1
+      dialogueText: "Ve \xE7al\u0131\u015Facak?"
+    - isPlayer: 0
+      dialogueText: "Evet. Hadi bak birazdan depresyon eras\u0131na girecek bile
+        ."
+    - isPlayer: 0
+      dialogueText: "Ka\u011F\u0131t yerine nutella vermesini istemiyorsan h\u0131zl\u0131
+        ol."
+    - isPlayer: 1
+      dialogueText: "Mnat\u0131kl\u0131 de\u011Fil."
+    - isPlayer: 0
+      dialogueText: "Burada hi\xE7bir \u015Fey mant\u0131kl\u0131 de\u011Fil."
     successDialogue: []
     failDialogue: []
-    acceptButtonText: 
-    rejectButtonText: 
+    acceptButtonText: Tabii, gidiyorum.
+    rejectButtonText: "Yaz\u0131c\u0131yla m\u0131 konu\u015Faca\u011F\u0131m?"
   trustIntroDialogue:
   - isPlayer: 0
     dialogueText: 
@@ -12113,9 +12212,9 @@ MonoBehaviour:
     dialogueText: Burada mutlu musun?
   - isPlayer: 1
     dialogueText: "Hen\xFCz anlamaya \xE7al\u0131\u015F\u0131yorum."
-  - isPlayer: 1
-    dialogueText: "Anlad\u0131n m\u0131?"
   - isPlayer: 0
+    dialogueText: "Anlad\u0131n m\u0131?"
+  - isPlayer: 1
     dialogueText: "Hay\u0131r."
   - isPlayer: 0
     dialogueText: "Ama en az\u0131ndan sen de anlam\u0131yorsun."
@@ -14269,39 +14368,143 @@ MonoBehaviour:
   npcPortrait: {fileID: 7574722205383545943, guid: 53adf6dca52f93b40bbbc210abe1a214, type: 3}
   ePrompt: {fileID: 1215355279}
   tasks:
-  - taskName: 
-    introDialogue: []
-    rejectDialogue: []
-    successDialogue: []
-    failDialogue: []
-    acceptButtonText: 
-    rejectButtonText: 
-  - taskName: 
-    introDialogue: []
-    rejectDialogue: []
-    successDialogue: []
-    failDialogue: []
-    acceptButtonText: 
-    rejectButtonText: 
+  - taskName: Coffe
+    introDialogue:
+    - isPlayer: 0
+      dialogueText: Yeni misin?
+    - isPlayer: 1
+      dialogueText: Evet
+    - isPlayer: 0
+      dialogueText: "Ka\xE7 g\xFCnd\xFCr burdas\u0131n?"
+    - isPlayer: 1
+      dialogueText: "Bug\xFCn ilk g\xFCn."
+    - isPlayer: 0
+      dialogueText: "Ben de \xF6yle demi\u015Ftim."
+    - isPlayer: 0
+      dialogueText: "3 y\u0131l \xF6nce.."
+    - isPlayer: 0
+      dialogueText: Neyse kahve doldurur musun?
+    - isPlayer: 0
+      dialogueText: "Ne eksik ne fazla. Tam olmal\u0131!"
+    rejectDialogue:
+    - isPlayer: 0
+      dialogueText: "Tam i\u015Fte."
+    - isPlayer: 1
+      dialogueText: "Bu \xE7ok belirsiz."
+    - isPlayer: 0
+      dialogueText: "Burada her \u015Fey belirsiz."
+    successDialogue:
+    - isPlayer: 0
+      dialogueText: ...
+    - isPlayer: 0
+      dialogueText: Evet.
+    - isPlayer: 1
+      dialogueText: "Be\u011Fendin mi?"
+    - isPlayer: 0
+      dialogueText: Kahveyi mi?
+    - isPlayer: 1
+      dialogueText: Evet.
+    - isPlayer: 0
+      dialogueText: "\u0130\xE7medim ki."
+    - isPlayer: 0
+      dialogueText: "Ama g\xF6rsel olarak tatmin edici"
+    - isPlayer: 1
+      dialogueText: "Te\u015Fekk\xFCr ederim."
+    - isPlayer: 1
+      dialogueText: Rica etmem.
+    failDialogue:
+    - isPlayer: 1
+      dialogueText: Ah pardon-
+    - isPlayer: 0
+      dialogueText: "B\xF6yle iyi. Hat\u0131ra olsun"
+    - isPlayer: 1
+      dialogueText: "Ne hat\u0131ras\u0131?"
+    - isPlayer: 0
+      dialogueText: "\u0130lk ve son kahven."
+    acceptButtonText: Tamam.
+    rejectButtonText: Tam derken.. ne kadar tam?
+  - taskName: Form
+    introDialogue:
+    - isPlayer: 0
+      dialogueText: "\u015Eu formu doldurur musun? Standart prosed\xFCr."
+    rejectDialogue:
+    - isPlayer: 0
+      dialogueText: "Standart prosed\xFCr."
+    - isPlayer: 1
+      dialogueText: Ama-
+    - isPlayer: 0
+      dialogueText: "Standart prosed\xFCr."
+    successDialogue:
+    - isPlayer: 0
+      dialogueText: Hmm.
+    - isPlayer: 1
+      dialogueText: "Do\u011Fru mu?"
+    - isPlayer: 0
+      dialogueText: Bilmiyorum.
+    - isPlayer: 1
+      dialogueText: Ne?
+    - isPlayer: 0
+      dialogueText: "Do\u011Fru cevap yok ki."
+    - isPlayer: 1
+      dialogueText: O zaman nede-
+    - isPlayer: 0
+      dialogueText: "Nas\u0131l cevaplad\u0131\u011F\u0131n \xF6nemli."
+    - isPlayer: 0
+      dialogueText: "Sen teredd\xFCt etmedin."
+    - isPlayer: 0
+      dialogueText: "Bu onlar i\xE7in yeterli."
+    failDialogue:
+    - isPlayer: 0
+      dialogueText: Ah.
+    - isPlayer: 1
+      dialogueText: "Yanl\u0131\u015F m\u0131?"
+    - isPlayer: 0
+      dialogueText: Evet.
+    - isPlayer: 1
+      dialogueText: "Ne hissettiysem onu i\u015Faretledim."
+    - isPlayer: 0
+      dialogueText: "Bi severance olamad\u0131k."
+    acceptButtonText: Tabii.
+    rejectButtonText: "Bu sorular \xE7ok ki\u015Fisel d\u011Feil mi?"
   trustIntroDialogue:
   - isPlayer: 0
-    dialogueText: 
+    dialogueText: "Bir dakikan var m\u0131?"
   - isPlayer: 0
-    dialogueText: 
+    dialogueText: "Yani... zorunda de\u011Filsin."
   trustOption1Text: So?uk Davran
   option1GainsTrust: 0
   trustOption1Dialogue:
+  - isPlayer: 1
+    dialogueText: "\u015Eu an me\u015Fgul\xFCm."
   - isPlayer: 0
-    dialogueText: 
+    dialogueText: Tabii.
   - isPlayer: 0
-    dialogueText: 
+    dialogueText: "Hep me\u015Fgul\xFCz."
+  - isPlayer: 0
+    dialogueText: "\xD6z\xFCr dilerim sordu\u011Fum i\xE7in."
   trustOption2Text: Yak?n Davran
   option2GainsTrust: 1
   trustOption2Dialogue:
+  - isPlayer: 1
+    dialogueText: Var, ne oldu?
   - isPlayer: 0
-    dialogueText: 
+    dialogueText: "Hi\xE7.."
   - isPlayer: 0
-    dialogueText: 
+    dialogueText: "Hi\xE7 farkl\u0131 bir \u015Fey yapmak istedin mi?"
+  - isPlayer: 1
+    dialogueText: Ne gibi?
+  - isPlayer: 0
+    dialogueText: Bilmiyorum.
+  - isPlayer: 0
+    dialogueText: "Ben de bilseydim burada olmazd\u0131m."
+  - isPlayer: 1
+    dialogueText: ....
+  - isPlayer: 0
+    dialogueText: "Neyse. Te\u015Fekk\xFCrler."
+  - isPlayer: 1
+    dialogueText: "Ne i\xE7in?"
+  - isPlayer: 1
+    dialogueText: "Durdu\u011Fun i\xE7in :)"
 --- !u!1 &1846708775
 GameObject:
   m_ObjectHideFlags: 0
