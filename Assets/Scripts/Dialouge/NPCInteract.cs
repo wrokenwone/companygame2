@@ -1,10 +1,14 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 // This custom class keeps the Inspector perfectly organized!
 [System.Serializable]
+
+public enum MinigameType { Photo, Form, Coffee, Meeting, Printer }
+[System.Serializable]
 public class NPCTask
 {
-    public string taskName = "G�rev Ad?"; // Just to help you organize in the Inspector
+    public string taskName = "Görev Adı";
+    public MinigameType minigameType; // NEW: Dropdown to select the minigame!
 
     [Header("Dialogues")]
     public DialogueLine[] introDialogue;
@@ -36,7 +40,7 @@ public class NPCInteract : MonoBehaviour
     public DialogueLine[] trustIntroDialogue;
 
     [Header("Trust Option 1")]
-    public string trustOption1Text = "Me?gul�m";
+    public string trustOption1Text = "Me?gulüm";
     public bool option1GainsTrust = false;
     public DialogueLine[] trustOption1Dialogue;
 
@@ -99,7 +103,13 @@ public class NPCInteract : MonoBehaviour
 
     private void AcceptTask()
     {
-        Debug.Log("Minigame opening for task: " + tasks[currentTaskIndex].taskName);
+        NPCTask currentTask = tasks[currentTaskIndex];
+
+        if (currentTask.minigameType == MinigameType.Photo)
+        {
+            PhotoMinigame.Instance.OpenMinigame(this);
+        }
+        // We will add the other 4 here later!
     }
 
     public void OnMinigameComplete(bool wasSuccessful)
