@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using UnityEngine.SceneManagement; // Added for scene loading
 
 public class PhotoMinigame : MonoBehaviour
 {
@@ -7,12 +9,18 @@ public class PhotoMinigame : MonoBehaviour
 
     [Header("UI Elements")]
     public GameObject minigamePanel;
-    public Transform selectionBorder; // CHANGED: Now accepts a standard 2D Transform!
+    public Transform selectionBorder;
     public Button confirmButton;
 
     [Header("Game Settings")]
     public Button[] photoButtons;
     public int correctPhotoIndex = 2;
+
+    [Header("End Settings")]
+    [Tooltip("How many seconds to wait after clicking confirm before fading out")]
+    public float delayAfterConfirm = 1f;
+    [Tooltip("Type a scene name to go there. Leave EMPTY to return to the Office.")]
+    public string nextSceneToLoad = "";
 
     private int selectedIndex = -1;
     private NPCInteract requestingNPC;
@@ -29,6 +37,8 @@ public class PhotoMinigame : MonoBehaviour
             int index = i;
             photoButtons[i].onClick.AddListener(() => SelectPhoto(index));
         }
+
+        minigamePanel.SetActive(false);
     }
 
     public void OpenMinigame(NPCInteract npc)
@@ -39,7 +49,8 @@ public class PhotoMinigame : MonoBehaviour
         selectionBorder.gameObject.SetActive(false);
         if (confirmButton != null) confirmButton.interactable = false;
 
-        minigamePanel.SetActive(true);
+        // FADE IN INSTEAD OF POPPING IN!
+        ScreenFader.Instance.FadeToPanel(minigamePanel);
     }
 
     public void SelectPhoto(int index)
@@ -47,7 +58,6 @@ public class PhotoMinigame : MonoBehaviour
         selectedIndex = index;
         selectionBorder.gameObject.SetActive(true);
 
-        // CHANGED: Now grabs the standard position of the clicked photo!
         selectionBorder.position = photoButtons[index].transform.position;
 
         if (confirmButton != null) confirmButton.interactable = true;
@@ -55,13 +65,33 @@ public class PhotoMinigame : MonoBehaviour
 
     public void OnConfirmClicked()
     {
-        minigamePanel.SetActive(false);
+        // Prevent them from clicking confirm multiple times during the fade!
+        if (confirmButton != null) confirmButton.interactable = false;
 
         bool isSuccess = (selectedIndex == correctPhotoIndex);
 
-        if (requestingNPC != null)
+        // Start the fade out sequence
+        StartCoroutine(FinishMinigameRoutine(isSuccess));
+    }
+
+    private IEnumerator FinishMinigameRoutine(bool isSuccess)
+    {
+        // 1. Wait a moment so they can see their final choice locked in
+        yield return new WaitForSeconds(delayAfterConfirm);
+
+        // 2. Fade to black, close panel, and run the ending logic
+        ScreenFader.Instance.FadeClosePanel(minigamePanel, () =>
         {
-            requestingNPC.OnMinigameComplete(isSuccess);
-        }
+            // 3. Go to next scene if one is typed in the inspector
+            if (!string.IsNullOrEmpty(nextSceneToLoad))
+            {
+                SceneManager.LoadScene(nextSceneToLoad);
+            }
+            // 4. Otherwise, continue the normal quest logic
+            else
+            {
+                if (requestingNPC != null) requestingNPC.OnMinigameComplete(isSuccess);
+            }
+        });
     }
 }

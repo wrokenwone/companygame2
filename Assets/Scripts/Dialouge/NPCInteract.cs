@@ -109,7 +109,10 @@ public class NPCInteract : MonoBehaviour
         {
             PhotoMinigame.Instance.OpenMinigame(this);
         }
-        // We will add the other 4 here later!
+        else if (currentTask.minigameType == MinigameType.Coffee) // NEW COFFEE LOGIC
+        {
+            CoffeeMinigame.Instance.OpenMinigame(this);
+        }
     }
 
     public void OnMinigameComplete(bool wasSuccessful)
