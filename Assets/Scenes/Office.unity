@@ -12015,29 +12015,68 @@ MonoBehaviour:
   npcPortrait: {fileID: -7503768634995859389, guid: bba43394bd579c345a8b3f8b90ad52b3, type: 3}
   ePrompt: {fileID: 1857840527}
   tasks:
-  - taskName: 
+  - taskName: Photo
     introDialogue:
-    - isPlayer: 1
-      dialogueText: Hiiiii
     - isPlayer: 0
-      dialogueText: Im Selin
+      dialogueText: Merhaba!Yeni misin?
+    - isPlayer: 1
+      dialogueText: Evet.
+    - isPlayer: 0
+      dialogueText: Harika!Ben de yeniyim.
+    - isPlayer: 1
+      dialogueText: "Ne zamand\u0131r buradas\u0131n?"
+    - isPlayer: 0
+      dialogueText: "2 y\u0131l. Neyse \u015Fu foto\u011Fraflara bak\u0131p \u015Firket
+        ruhuna en uygun olan\u0131 se\xE7er misin?"
     rejectDialogue:
     - isPlayer: 0
-      dialogueText: Whyyy
+      dialogueText: "Hay\u0131r."
     - isPlayer: 1
-      dialogueText: IDK
+      dialogueText: Ama-
+    - isPlayer: 0
+      dialogueText: "Hay\u0131r."
     successDialogue:
+    - isPlayer: 1
+      dialogueText: Evet! Bu!
     - isPlayer: 0
-      dialogueText: 
+      dialogueText: Neden bu?
+    - isPlayer: 1
+      dialogueText: Bilmiyorum.
+    - isPlayer: 1
+      dialogueText: Ben de bilmiyordum zaten.
     - isPlayer: 0
-      dialogueText: 
+      dialogueText: "\u0130\u015Fte o y\xFCzden do\u011Fru."
+    - isPlayer: 1
+      dialogueText: "Bu mant\u0131kl\u0131 de\u011Fil."
+    - isPlayer: 0
+      dialogueText: "Burada \xE7al\u0131\u015F\u0131yorsun art\u0131k."
+    - isPlayer: 0
+      dialogueText: "Mant\u0131k opsiyonel :)"
     failDialogue:
     - isPlayer: 0
-      dialogueText: 
+      dialogueText: "Hay\u0131r."
+    - isPlayer: 1
+      dialogueText: Neden
     - isPlayer: 0
-      dialogueText: 
-    acceptButtonText: I accept
-    rejectButtonText: I dont
+      dialogueText: "Enerjisi yanl\u0131\u015F."
+    - isPlayer: 1
+      dialogueText: "Foto\u011Fraf\u0131n enerjisi mi?"
+    - isPlayer: 0
+      dialogueText: Evet.
+    - isPlayer: 1
+      dialogueText: "Hepsi ayn\u0131 foto\u011Fraf de\u011Fil miydi?"
+    - isPlayer: 0
+      dialogueText: "Kesinlikle hay\u0131r."
+    - isPlayer: 0
+      dialogueText: "K\xFC\xE7\xFCk piksel farkl\u0131l\u0131klar\u0131 vard\u0131"
+    - isPlayer: 1
+      dialogueText: ...
+    - isPlayer: 0
+      dialogueText: "O pikseller \xE7ok \u015Fey ifade ediyor O\u011Fuz."
+    - isPlayer: 1
+      dialogueText: ....
+    acceptButtonText: "Tamam, bakay\u0131m."
+    rejectButtonText: "Bunlar\u0131n hepsi ayn\u0131 de\u011Fil mi?"
   - taskName: 
     introDialogue: []
     rejectDialogue: []
@@ -12048,16 +12087,40 @@ MonoBehaviour:
   trustIntroDialogue:
   - isPlayer: 0
     dialogueText: 
-  trustOption1Text: So?uk Davran
+  trustOption1Text: "So\u011Fuk Davran"
   option1GainsTrust: 0
   trustOption1Dialogue:
   - isPlayer: 0
-    dialogueText: 
-  trustOption2Text: Yak?n Davran
+    dialogueText: "Hey... sana bir \u015Fey sorsam?"
+  - isPlayer: 0
+    dialogueText: Burada mutlu musun?
+  - isPlayer: 1
+    dialogueText: Evet, gayet iyi.
+  - isPlayer: 0
+    dialogueText: "Vay. Ger\xE7ekten mi?"
+  - isPlayer: 1
+    dialogueText: Evet.
+  - isPlayer: 0
+    dialogueText: ...
+  - isPlayer: 0
+    dialogueText: Tamam.
+  trustOption2Text: "Yak\u0131n Davran"
   option2GainsTrust: 1
   trustOption2Dialogue:
   - isPlayer: 0
-    dialogueText: 
+    dialogueText: "Hey... sana bir \u015Fey sorsam?"
+  - isPlayer: 0
+    dialogueText: Burada mutlu musun?
+  - isPlayer: 1
+    dialogueText: "Hen\xFCz anlamaya \xE7al\u0131\u015F\u0131yorum."
+  - isPlayer: 1
+    dialogueText: "Anlad\u0131n m\u0131?"
+  - isPlayer: 0
+    dialogueText: "Hay\u0131r."
+  - isPlayer: 0
+    dialogueText: "Ama en az\u0131ndan sen de anlam\u0131yorsun."
+  - isPlayer: 0
+    dialogueText: Bu... iyi hissettiriyor.
 --- !u!1 &1472199402
 GameObject:
   m_ObjectHideFlags: 0
