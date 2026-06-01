@@ -513,7 +513,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 351, y: 140.61414}
+  m_AnchoredPosition: {x: 564, y: 140.61414}
   m_SizeDelta: {x: 868.9716, y: 98.7718}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &79352776
@@ -734,7 +734,7 @@ Transform:
   m_GameObject: {fileID: 86799691}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.53, y: 1.0725, z: 0}
+  m_LocalPosition: {x: 10.57, y: 1.0725, z: 0}
   m_LocalScale: {x: 2.0607, y: 2.0607, z: 2.0607}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -831,7 +831,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1658062233}
         m_TargetAssemblyTypeName: MeetingMinigame, Assembly-CSharp
         m_MethodName: OnNodInput
         m_Mode: 1
@@ -992,7 +992,7 @@ Transform:
   m_GameObject: {fileID: 111234688}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.2094, y: 1.96, z: 0}
+  m_LocalPosition: {x: 9.249399, y: 1.96, z: 0}
   m_LocalScale: {x: 2.0607, y: 2.0607, z: 2.0607}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1089,7 +1089,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1658062233}
         m_TargetAssemblyTypeName: MeetingMinigame, Assembly-CSharp
         m_MethodName: OnNodInput
         m_Mode: 1
@@ -4788,7 +4788,7 @@ Transform:
   m_GameObject: {fileID: 417476937}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.26481885, y: -0.253, z: 0}
+  m_LocalPosition: {x: -0.26481885, y: -0.055, z: 0}
   m_LocalScale: {x: 1.2675178, y: 1.2838283, z: 0.21489543}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5445,7 +5445,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 338, y: 297}
+  m_AnchoredPosition: {x: 551.00024, y: 297}
   m_SizeDelta: {x: 868.9716, y: 98.7718}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &513168561
@@ -5717,6 +5717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   endDayButton: {fileID: 1831161969}
   totalNPCsInLevel: 3
+  successfulTasks: 0
   totalTrustScore: 0
   companionsList:
   - npcName: Selin
@@ -10219,7 +10220,7 @@ Transform:
   m_GameObject: {fileID: 964788553}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.93, y: 1.0725, z: 0}
+  m_LocalPosition: {x: 7.9699993, y: 1.0725, z: 0}
   m_LocalScale: {x: 2.0607, y: 2.0607, z: 2.0607}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10316,7 +10317,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1658062233}
         m_TargetAssemblyTypeName: MeetingMinigame, Assembly-CSharp
         m_MethodName: OnNodInput
         m_Mode: 1
@@ -15951,7 +15952,7 @@ Transform:
   m_GameObject: {fileID: 1638243195}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.2094, y: 0.27, z: 0}
+  m_LocalPosition: {x: 9.249399, y: 0.27, z: 0}
   m_LocalScale: {x: 2.0607, y: 2.0607, z: 2.0607}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16048,7 +16049,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1658062233}
         m_TargetAssemblyTypeName: MeetingMinigame, Assembly-CSharp
         m_MethodName: OnNodInput
         m_Mode: 1
@@ -20282,7 +20283,6 @@ GameObject:
   - component: {fileID: 2096513931}
   - component: {fileID: 2096513932}
   - component: {fileID: 2096513933}
-  - component: {fileID: 2096513934}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -20444,7 +20444,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5043488, y: 0.033594277}
+    pivot: {x: 0.50434893, y: 0.49157357}
     oldSize: {x: 0.24, y: 0.32}
     newSize: {x: 0.24, y: 0.32}
     adaptiveTilingThreshold: 0.5
@@ -20474,20 +20474,6 @@ MonoBehaviour:
     dialogueText: "Hi\xE7 tan\u0131mad\u0131\u011F\u0131m insanlar."
   - isPlayer: 1
     dialogueText: "M\xFCkemmel."
---- !u!114 &2096513934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2096513927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa8fe09b40855e64faf1beedab5609e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YSorter
-  isStaticObject: 0
-  sortingOffset: 130
 --- !u!1 &2111606836
 GameObject:
   m_ObjectHideFlags: 0
@@ -20588,7 +20574,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 12
+  m_SortingOrder: 20
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: b67e0d4905556544b9b690402d547894, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

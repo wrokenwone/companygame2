@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     [Header("Game Progress")]
     public int totalNPCsInLevel = 3;
     private int npcsFinishedWithTasks = 0;
+    public int successfulTasks = 0; // NEW: Tracks your minigame wins!
 
     [Header("Trust System & Companions")]
     public int totalTrustScore = 0;
@@ -102,7 +103,7 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        isGoodEndingSequence = totalTrustScore >= 2;
+        isGoodEndingSequence = totalTrustScore <= 2;
 
         if (isGoodEndingSequence)
         {
@@ -171,5 +172,10 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(sceneToLoad);
+    }
+    // NEW: Called by NPCInteract when you win a minigame!
+    public void AddSuccessfulTask()
+    {
+        successfulTasks++;
     }
 }

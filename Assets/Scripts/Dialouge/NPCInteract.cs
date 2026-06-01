@@ -179,9 +179,11 @@ public class NPCInteract : MonoBehaviour
         }
     }
 
-    private void OnTaskFinishedSuccessfully()
+   private void OnTaskFinishedSuccessfully()
     {
-        // Removed the old GameManager call. AdvanceToNextPhase handles progression now!
+        // Tell the GameManager you got a success!
+        if (GameManager.Instance != null) GameManager.Instance.AddSuccessfulTask();
+
         AdvanceToNextPhase();
     }
 
