@@ -144,15 +144,25 @@ public class OfficeDialogueManager : MonoBehaviour
     {
         optionsPanel.SetActive(true);
 
+        option1Button.gameObject.SetActive(true);
         option1Text.text = opt1;
         option1Button.onClick.RemoveAllListeners();
         option1Button.onClick.AddListener(action1);
         option1Button.onClick.AddListener(CloseOptions);
 
-        option2Text.text = opt2;
-        option2Button.onClick.RemoveAllListeners();
-        option2Button.onClick.AddListener(action2);
-        option2Button.onClick.AddListener(CloseOptions);
+        // NEW: If the second option is empty, hide the button!
+        if (string.IsNullOrEmpty(opt2))
+        {
+            option2Button.gameObject.SetActive(false);
+        }
+        else
+        {
+            option2Button.gameObject.SetActive(true);
+            option2Text.text = opt2;
+            option2Button.onClick.RemoveAllListeners();
+            option2Button.onClick.AddListener(action2);
+            option2Button.onClick.AddListener(CloseOptions);
+        }
     }
 
     private void CloseOptions()

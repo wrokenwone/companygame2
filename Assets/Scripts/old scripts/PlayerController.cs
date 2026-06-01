@@ -35,4 +35,14 @@ public class PlayerController : MonoBehaviour
             else if (x > 0) sr.flipX = false;
         }
     }
+
+    // --- NEW: The Emergency Brake ---
+    private void OnDisable()
+    {
+        // Whenever this script is turned off (like during dialogue), instantly stop movement!
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
+    }
 }

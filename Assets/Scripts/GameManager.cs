@@ -1,44 +1,115 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [HideInInspector] public int successfulTasks = 0;
-    [HideInInspector] public int totalTasksCompleted = 0;
+    [Header("UI Elements")]
+    public GameObject endDayButton;
 
-    // --- NEW: Trust System Variables ---
-    [HideInInspector] public bool ahmetTrusted = false;
-    [HideInInspector] public bool selinTrusted = false;
-    [HideInInspector] public bool kaanTrusted = false;
+    [Header("Game Progress")]
+    public int totalNPCsInLevel = 3;
+    private int npcsFinishedWithTasks = 0;
+
+    [Header("Trust System")]
+    public int totalTrustScore = 0;
+
+    [Header("Ending Dialogues")]
+    public string bossName = "Selin";
+    public Sprite bossPortrait;
+    public DialogueLine[] goodEndingDialogue;
+    public DialogueLine[] badEndingDialogue;
+
+    [Header("Cinematic Settings")]
+    public Transform bossObject; // Assign Selin's physical object here
+    public Transform playerObject; // Assign the Player here
+    public float bossWalkSpeed = 3f;
+
+    [Header("Final Interaction Triggers")]
+    public EndingTrigger doorExitTrigger;
+    public EndingTrigger deskSitTrigger;
+
+    private bool isGoodEndingSequence = false;
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
-        else Destroy(gameObject);
     }
 
-    public void CompleteTask(bool wasSuccessful)
+    private void Start()
     {
-        totalTasksCompleted++;
+        if (endDayButton != null) endDayButton.SetActive(false);
+    }
 
-        if (wasSuccessful) successfulTasks++;
-
-        if (totalTasksCompleted >= 5)
+    public void ReportTaskPhaseComplete()
+    {
+        npcsFinishedWithTasks++;
+        if (npcsFinishedWithTasks >= totalNPCsInLevel)
         {
-            if (successfulTasks >= 3) SceneManager.LoadScene("Ending_Good");
-            else SceneManager.LoadScene("Ending_Bad");
+            if (endDayButton != null) endDayButton.SetActive(true);
         }
     }
 
-    // --- NEW: Function to set trust based on NPC name ---
-    public void SetTrust(string npcName, bool isTrusted)
+    public void SetTrust(string npcName, bool gainedTrust)
     {
-        if (npcName == "Ahmet") ahmetTrusted = isTrusted;
-        else if (npcName == "Selin") selinTrusted = isTrusted;
-        else if (npcName == "Kaan") kaanTrusted = isTrusted;
+        if (gainedTrust) totalTrustScore++;
+    }
 
-        Debug.Log(npcName + " trust set to: " + isTrusted);
+    public void OnEndDayButtonClicked()
+    {
+        if (endDayButton != null) endDayButton.SetActive(false);
+
+        // 1. Freeze the player
+        PlayerController player = FindAnyObjectByType<PlayerController>();
+        if (player != null) player.enabled = false;
+
+        // 2. Start the dramatic walk sequence!
+        StartCoroutine(BossWalkToPlayerRoutine());
+    }
+
+    private IEnumerator BossWalkToPlayerRoutine()
+    {
+        // NEW: Turn the hidden cinematic boss ON before she starts walking!
+        if (bossObject != null) bossObject.gameObject.SetActive(true);
+
+        // Slide the boss towards the player until she is 1.5 units away
+        while (Vector2.Distance(bossObject.position, playerObject.position) > 1.5f)
+        {
+            bossObject.position = Vector2.MoveTowards(bossObject.position, playerObject.position, bossWalkSpeed * Time.deltaTime);
+            yield return null; // Wait for the next frame
+        }
+
+        // Figure out which ending we got
+        isGoodEndingSequence = totalTrustScore >= (totalNPCsInLevel / 2f);
+
+        // Start the dialogue!
+        if (isGoodEndingSequence)
+        {
+            OfficeDialogueManager.Instance.StartConversation(goodEndingDialogue, bossName, bossPortrait, OnEndingDialogueFinished);
+        }
+        else
+        {
+            OfficeDialogueManager.Instance.StartConversation(badEndingDialogue, bossName, bossPortrait, OnEndingDialogueFinished);
+        }
+    }
+
+    private void OnEndingDialogueFinished()
+    {
+        // Unfreeze the player so they can walk to the final trigger!
+        PlayerController player = FindAnyObjectByType<PlayerController>();
+        if (player != null) player.enabled = true;
+
+        // NEW: Unlock the correct physical trigger in the room!
+        if (isGoodEndingSequence)
+        {
+            if (doorExitTrigger != null) doorExitTrigger.isUnlocked = true;
+        }
+        else
+        {
+            if (deskSitTrigger != null) deskSitTrigger.isUnlocked = true;
+        }
     }
 }
