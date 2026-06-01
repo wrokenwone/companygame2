@@ -7,11 +7,14 @@ public class EndingTrigger : MonoBehaviour
     [Header("Interaction Settings")]
     public GameObject ePrompt;
     public string sceneToLoad;
+
+    [Header("Ending Type")]
+    [Tooltip("Check this box ONLY for the Door object!")]
+    public bool isDoorExit = false;
+    [Tooltip("Check this box ONLY for the Desk object!")]
     public bool snapToCenter = false;
 
-    // NEW: A lock so the player can't interact early!
     [HideInInspector] public bool isUnlocked = false;
-
     private bool playerNearby = false;
 
     private void Start()
@@ -21,7 +24,6 @@ public class EndingTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Don't show the E prompt if the ending hasn't happened yet!
         if (!isUnlocked) return;
 
         if (other.CompareTag("Player"))
@@ -42,7 +44,6 @@ public class EndingTrigger : MonoBehaviour
 
     private void Update()
     {
-        // Ignore key presses if it is locked!
         if (!isUnlocked) return;
 
         if (playerNearby && Input.GetKeyDown(KeyCode.E))
@@ -52,13 +53,21 @@ public class EndingTrigger : MonoBehaviour
             PlayerController player = FindAnyObjectByType<PlayerController>();
             if (player != null) player.enabled = false;
 
-            if (snapToCenter && player != null)
+            if (isDoorExit)
             {
-                player.transform.position = this.transform.position;
+                // GOOD ENDING: Hide the player immediately, and start the NPC walk!
+                if (player != null) player.gameObject.SetActive(false);
+                GameManager.Instance.StartCompanionsExit(this.transform.position, sceneToLoad);
             }
-
-            // Start the dramatic pause before loading
-            StartCoroutine(WaitAndLoadScene());
+            else
+            {
+                // BAD ENDING: Snap to the desk and load the scene
+                if (snapToCenter && player != null)
+                {
+                    player.transform.position = this.transform.position;
+                }
+                StartCoroutine(WaitAndLoadScene());
+            }
         }
     }
 

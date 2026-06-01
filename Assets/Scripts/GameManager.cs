@@ -1,7 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+
+[System.Serializable]
+public class NPCCompanion
+{
+    public string npcName;
+    public GameObject mainNPC;
+    public GameObject cinematicNPC;
+
+    [Header("Pathfinding")]
+    [Tooltip("Place an empty GameObject in the aisle outside their desk so they don't walk through walls!")]
+    public Transform aisleWaypoint;
+}
 
 public class GameManager : MonoBehaviour
 {
@@ -14,8 +27,10 @@ public class GameManager : MonoBehaviour
     public int totalNPCsInLevel = 3;
     private int npcsFinishedWithTasks = 0;
 
-    [Header("Trust System")]
+    [Header("Trust System & Companions")]
     public int totalTrustScore = 0;
+    public List<NPCCompanion> companionsList;
+    private Dictionary<string, bool> npcTrustRecords = new Dictionary<string, bool>();
 
     [Header("Ending Dialogues")]
     public string bossName = "Selin";
@@ -24,9 +39,9 @@ public class GameManager : MonoBehaviour
     public DialogueLine[] badEndingDialogue;
 
     [Header("Cinematic Settings")]
-    public Transform bossObject; // Assign Selin's physical object here
-    public Transform playerObject; // Assign the Player here
-    public float bossWalkSpeed = 3f;
+    public Transform bossObject;
+    public Transform playerObject;
+    public float walkSpeed = 3f;
 
     [Header("Final Interaction Triggers")]
     public EndingTrigger doorExitTrigger;
@@ -55,6 +70,15 @@ public class GameManager : MonoBehaviour
 
     public void SetTrust(string npcName, bool gainedTrust)
     {
+        if (!npcTrustRecords.ContainsKey(npcName))
+        {
+            npcTrustRecords.Add(npcName, gainedTrust);
+        }
+        else
+        {
+            npcTrustRecords[npcName] = gainedTrust;
+        }
+
         if (gainedTrust) totalTrustScore++;
     }
 
@@ -62,30 +86,24 @@ public class GameManager : MonoBehaviour
     {
         if (endDayButton != null) endDayButton.SetActive(false);
 
-        // 1. Freeze the player
         PlayerController player = FindAnyObjectByType<PlayerController>();
         if (player != null) player.enabled = false;
 
-        // 2. Start the dramatic walk sequence!
         StartCoroutine(BossWalkToPlayerRoutine());
     }
 
     private IEnumerator BossWalkToPlayerRoutine()
     {
-        // NEW: Turn the hidden cinematic boss ON before she starts walking!
         if (bossObject != null) bossObject.gameObject.SetActive(true);
 
-        // Slide the boss towards the player until she is 1.5 units away
         while (Vector2.Distance(bossObject.position, playerObject.position) > 1.5f)
         {
-            bossObject.position = Vector2.MoveTowards(bossObject.position, playerObject.position, bossWalkSpeed * Time.deltaTime);
-            yield return null; // Wait for the next frame
+            bossObject.position = Vector2.MoveTowards(bossObject.position, playerObject.position, walkSpeed * Time.deltaTime);
+            yield return null;
         }
 
-        // Figure out which ending we got
-        isGoodEndingSequence = totalTrustScore >= (totalNPCsInLevel / 2f);
+        isGoodEndingSequence = totalTrustScore >= 2;
 
-        // Start the dialogue!
         if (isGoodEndingSequence)
         {
             OfficeDialogueManager.Instance.StartConversation(goodEndingDialogue, bossName, bossPortrait, OnEndingDialogueFinished);
@@ -98,11 +116,9 @@ public class GameManager : MonoBehaviour
 
     private void OnEndingDialogueFinished()
     {
-        // Unfreeze the player so they can walk to the final trigger!
         PlayerController player = FindAnyObjectByType<PlayerController>();
         if (player != null) player.enabled = true;
 
-        // NEW: Unlock the correct physical trigger in the room!
         if (isGoodEndingSequence)
         {
             if (doorExitTrigger != null) doorExitTrigger.isUnlocked = true;
@@ -111,5 +127,49 @@ public class GameManager : MonoBehaviour
         {
             if (deskSitTrigger != null) deskSitTrigger.isUnlocked = true;
         }
+    }
+
+    public void StartCompanionsExit(Vector3 doorPosition, string sceneToLoad)
+    {
+        StartCoroutine(CompanionsExitRoutine(doorPosition, sceneToLoad));
+    }
+
+    private IEnumerator CompanionsExitRoutine(Vector3 doorPosition, string sceneToLoad)
+    {
+        foreach (NPCCompanion companion in companionsList)
+        {
+            if (npcTrustRecords.ContainsKey(companion.npcName) && npcTrustRecords[companion.npcName] == true)
+            {
+                if (companion.mainNPC != null) companion.mainNPC.SetActive(false);
+
+                if (companion.cinematicNPC != null)
+                {
+                    companion.cinematicNPC.SetActive(true);
+
+                    // NEW: 1. Walk to the aisle waypoint first (to get out of the cubicle)
+                    if (companion.aisleWaypoint != null)
+                    {
+                        while (Vector2.Distance(companion.cinematicNPC.transform.position, companion.aisleWaypoint.position) > 0.1f)
+                        {
+                            companion.cinematicNPC.transform.position = Vector2.MoveTowards(companion.cinematicNPC.transform.position, companion.aisleWaypoint.position, walkSpeed * Time.deltaTime);
+                            yield return null;
+                        }
+                    }
+
+                    // NEW: 2. Now walk horizontally/vertically to the door!
+                    while (Vector2.Distance(companion.cinematicNPC.transform.position, doorPosition) > 0.1f)
+                    {
+                        companion.cinematicNPC.transform.position = Vector2.MoveTowards(companion.cinematicNPC.transform.position, doorPosition, walkSpeed * Time.deltaTime);
+                        yield return null;
+                    }
+
+                    companion.cinematicNPC.SetActive(false);
+                    yield return new WaitForSeconds(0.5f);
+                }
+            }
+        }
+
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(sceneToLoad);
     }
 }
