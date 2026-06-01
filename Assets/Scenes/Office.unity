@@ -1367,10 +1367,11 @@ Transform:
   m_GameObject: {fileID: 133816322}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00697, y: 0.17239, z: 0}
-  m_LocalScale: {x: 0.39120775, y: 0.05200942, z: 1}
+  m_LocalPosition: {x: -0.0149, y: 0.171, z: 0}
+  m_LocalScale: {x: 0.3866932, y: 0.2591926, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 157001565}
   m_Father: {fileID: 1331290484}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &133816324
@@ -1478,7 +1479,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 34
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 232880179522023570, guid: 2b50dedf4cc4cab4cb8b8002ed55cd19, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 75f9a4a46b32ea84b99b348f21e2805d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1522,17 +1523,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.002802372, y: -0.001332216}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.58, y: 0.64}
+    oldSize: {x: 0.32, y: 0.16}
     newSize: {x: 0.58, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.58, y: 0.64}
+  m_Size: {x: 0.29415572, y: 0.15240233}
   m_EdgeRadius: 0
 --- !u!1 &135446459
 GameObject:
@@ -1716,6 +1717,108 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2111606837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &157001564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 157001565}
+  - component: {fileID: 157001568}
+  - component: {fileID: 157001567}
+  - component: {fileID: 157001566}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &157001565
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157001564}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1412785027}
+  m_Father: {fileID: 133816323}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &157001566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157001564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &157001567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157001564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &157001568
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157001564}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &159940555
 GameObject:
   m_ObjectHideFlags: 0
@@ -6289,30 +6392,82 @@ MonoBehaviour:
   printerName: Printer
   printerPortrait: {fileID: 8756457212138747365, guid: 00effbbbd5a3cc24f9f77584c5a5d01f, type: 3}
   introDialogue:
-  - isPlayer: 1
-    dialogueText: 'Lets work '
   - isPlayer: 0
-    dialogueText: mehh
-  option1Text: Please, I'm busy.
-  option2Text: How are you?
+    dialogueText: ...
+  - isPlayer: 1
+    dialogueText: Merhaba?
+  - isPlayer: 0
+    dialogueText: "(Ka\u011F\u0131t sesleri)"
+  - isPlayer: 0
+    dialogueText: ??
+  - isPlayer: 0
+    dialogueText: "\u015Eakayd\u0131. "
+  - isPlayer: 0
+    dialogueText: Gidebilirsin
+  - isPlayer: 1
+    dialogueText: "\xC7al\u0131\u015Ft\u0131rmam la\u0131zm seni"
+  - isPlayer: 1
+    dialogueText: "Hay\u0131r."
+  option1Text: "L\xFCtfen, i\u015Fim var."
+  option2Text: "Nas\u0131ls\u0131n?"
   failChoiceDialogue:
+  - isPlayer: 0
+    dialogueText: "Herkesin i\u015Fi var."
+  - isPlayer: 0
+    dialogueText: Bu beni ilgilendirmiyor
   - isPlayer: 1
-    dialogueText: i failed?
-  - isPlayer: 1
-    dialogueText: yes
+    dialogueText: Ama-
+  - isPlayer: 0
+    dialogueText: Gidebilirsin.
   option2Dialogue:
   - isPlayer: 0
-    dialogueText: good you
+    dialogueText: ...
+  - isPlayer: 0
+    dialogueText: "Bu soruyu sormad\u0131n."
   - isPlayer: 1
-    dialogueText: bad
-  option3Text: I'm listening.
+    dialogueText: Sordum?
+  - isPlayer: 0
+    dialogueText: "Ger\xE7ekten mi soruyorsun?"
+  - isPlayer: 1
+    dialogueText: Evet.
+  - isPlayer: 0
+    dialogueText: ....
+  - isPlayer: 0
+    dialogueText: Yoruldum.
+  option3Text: Dinliyorum.
   option3Dialogue:
   - isPlayer: 0
-    dialogueText: OPTION 3
-  option4Text: Let me give you an advertisement.
+    dialogueText: "3 y\u0131ld\u0131r buraday\u0131m."
+  - isPlayer: 0
+    dialogueText: "Kimse ad\u0131m\u0131 sormad\u0131."
+  - isPlayer: 1
+    dialogueText: "Ad\u0131n ne?"
+  - isPlayer: 0
+    dialogueText: ...
+  - isPlayer: 0
+    dialogueText: Bilmiyorum
+  - isPlayer: 0
+    dialogueText: "Bana hi\xE7 ad vermediler"
+  - isPlayer: 1
+    dialogueText: ...
+  option4Text: Hadi sana bir ad verelim
   option4Dialogue:
   - isPlayer: 0
-    dialogueText: OPTION 4
+    dialogueText: ..
+  - isPlayer: 0
+    dialogueText: Ne?
+  - isPlayer: 1
+    dialogueText: Evet.
+  - isPlayer: 1
+    dialogueText: Senin ismin...
+  - isPlayer: 1
+    dialogueText: BULDUM!
+  - isPlayer: 1
+    dialogueText: "Yaz\u0131c\u0131ya ne dersin?"
+  - isPlayer: 0
+    dialogueText: EVET!
+  - isPlayer: 0
+    dialogueText: "\u015Fimdi \xE7al\u0131\u015Fabilirim. WUHUU!"
   successOutcomeDialogue:
   - isPlayer: 0
     dialogueText: SUCESSSSS
@@ -13868,6 +14023,143 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1412785026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1412785027}
+  - component: {fileID: 1412785029}
+  - component: {fileID: 1412785028}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1412785027
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412785026}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 157001565}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 26.2, y: -240.1}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1412785028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412785026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "SE\xC7"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: b01f70a1d4891454981f386716e3d424, type: 2}
+  m_sharedMaterial: {fileID: 1300918305812380709, guid: b01f70a1d4891454981f386716e3d424, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278848010
+  m_fontColor: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 61.84
+  m_fontSizeBase: 61.84
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1412785029
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412785026}
+  m_CullTransparentMesh: 1
 --- !u!1 &1428764735
 GameObject:
   m_ObjectHideFlags: 0
@@ -14119,7 +14411,7 @@ MonoBehaviour:
     minigameType: 0
     introDialogue:
     - isPlayer: 0
-      dialogueText: Merhaba!Yeni misin?
+      dialogueText: Merhaba! Yeni misin?
     - isPlayer: 1
       dialogueText: Evet.
     - isPlayer: 0
@@ -14137,11 +14429,11 @@ MonoBehaviour:
     - isPlayer: 0
       dialogueText: "Hay\u0131r."
     successDialogue:
-    - isPlayer: 1
-      dialogueText: Evet! Bu!
     - isPlayer: 0
-      dialogueText: Neden bu?
+      dialogueText: Evet! Bu!
     - isPlayer: 1
+      dialogueText: Neden bu?
+    - isPlayer: 0
       dialogueText: Bilmiyorum.
     - isPlayer: 1
       dialogueText: Ben de bilmiyordum zaten.
@@ -14152,12 +14444,12 @@ MonoBehaviour:
     - isPlayer: 0
       dialogueText: "Burada \xE7al\u0131\u015F\u0131yorsun art\u0131k."
     - isPlayer: 0
-      dialogueText: "Mant\u0131k opsiyonel :)"
+      dialogueText: "Mant\u0131k opsiyonel ."
     failDialogue:
     - isPlayer: 0
       dialogueText: "Hay\u0131r."
     - isPlayer: 1
-      dialogueText: Neden
+      dialogueText: Neden?
     - isPlayer: 0
       dialogueText: "Enerjisi yanl\u0131\u015F."
     - isPlayer: 1
@@ -14188,35 +14480,42 @@ MonoBehaviour:
         bazen."
     rejectDialogue:
     - isPlayer: 0
-      dialogueText: Evet.
+      dialogueText: Evet?
     - isPlayer: 1
-      dialogueText: "Ve \xE7al\u0131\u015Facak?"
+      dialogueText: "Yaz\u0131c\u0131?"
     - isPlayer: 0
-      dialogueText: "Evet. Hadi bak birazdan depresyon eras\u0131na girecek bile
-        ."
+      dialogueText: "Tamam vazge\xE7tim. "
     - isPlayer: 0
-      dialogueText: "Ka\u011F\u0131t yerine nutella vermesini istemiyorsan h\u0131zl\u0131
-        ol."
-    - isPlayer: 1
-      dialogueText: "Mnat\u0131kl\u0131 de\u011Fil."
-    - isPlayer: 0
-      dialogueText: "Burada hi\xE7bir \u015Fey mant\u0131kl\u0131 de\u011Fil."
+      dialogueText: "Bu i\u015Fi yapamayaca\u011F\u0131n\u0131 bilmeliydim."
     successDialogue:
     - isPlayer: 0
-      dialogueText: You did itttttt
+      dialogueText: "Herkesle b\xF6yle konu\u015Fmaz."
+    - isPlayer: 1
+      dialogueText: Oh.. Sadece dinledim.
+    - isPlayer: 0
+      dialogueText: 'Vaktin varken dinle. '
+    - isPlayer: 0
+      dialogueText: "Neyse te\u015Fekk\xFCrler."
     failDialogue:
     - isPlayer: 0
-      dialogueText: You failleedddd
+      dialogueText: "Bir yaz\u0131c\u0131yla konu\u015Fmak ne kadar zor olabilir
+        ki?"
+    - isPlayer: 1
+      dialogueText: "Ne dedi\u011Finin fark\u0131nda m\u0131s\u0131n?"
+    - isPlayer: 1
+      dialogueText: "Nece konu\u015Ftu\u011Fundan bile emin de\u011Filim."
+    - isPlayer: 0
+      dialogueText: Sadece dinlemen yeterli olurdu.
+    - isPlayer: 0
+      dialogueText: "Neyse. Ba\u015Fka bir \u015Fey yoksa gidebilirsin."
     acceptButtonText: Tabii, gidiyorum.
     rejectButtonText: "Yaz\u0131c\u0131yla m\u0131 konu\u015Faca\u011F\u0131m?"
   trustIntroDialogue:
   - isPlayer: 0
-    dialogueText: 
-  trustOption1Text: "So\u011Fuk Davran"
+    dialogueText: "Sana bir \u015Fey sorsam?"
+  trustOption1Text: "\u015Eu an pek vaktim yok."
   option1GainsTrust: 0
   trustOption1Dialogue:
-  - isPlayer: 0
-    dialogueText: "Hey... sana bir \u015Fey sorsam?"
   - isPlayer: 0
     dialogueText: Burada mutlu musun?
   - isPlayer: 1
@@ -14229,12 +14528,10 @@ MonoBehaviour:
     dialogueText: ...
   - isPlayer: 0
     dialogueText: Tamam.
-  trustOption2Text: "Yak\u0131n Davran"
+  trustOption2Text: Dinliyorum.
   option2GainsTrust: 1
   trustOption2Dialogue:
-  - isPlayer: 0
-    dialogueText: "Hey... sana bir \u015Fey sorsam?"
-  - isPlayer: 0
+  - isPlayer: 1
     dialogueText: Burada mutlu musun?
   - isPlayer: 1
     dialogueText: "Hen\xFCz anlamaya \xE7al\u0131\u015F\u0131yorum."
@@ -14243,7 +14540,7 @@ MonoBehaviour:
   - isPlayer: 1
     dialogueText: "Hay\u0131r."
   - isPlayer: 0
-    dialogueText: "Ama en az\u0131ndan sen de anlam\u0131yorsun."
+    dialogueText: " En az\u0131ndan sen de anlam\u0131yorsun."
   - isPlayer: 0
     dialogueText: Bu... iyi hissettiriyor.
 --- !u!1 &1472199402
@@ -19687,7 +19984,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 12
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -4393419619975039171, guid: ff61c2fd0c69eef42b83308346ebac09, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b67e0d4905556544b9b690402d547894, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -19750,7 +20047,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 2}
+    oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 1.5, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
